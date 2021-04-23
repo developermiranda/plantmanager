@@ -6,7 +6,7 @@ import {
   FlatList,
   ActivityIndicator
 } from 'react-native'
-import { EnviromentButton } from '../components/EnvironmentButton';
+import { EnvironmentButton } from '../components/EnvironmentButton';
 
 import { Header } from '../components/Header';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
@@ -123,7 +123,7 @@ export function PlantSelect() {
         <FlatList
           data={environments}
           renderItem={({ item }) => (
-            <EnviromentButton
+            <EnvironmentButton
               title={item.title}
               active={item.key === environmentSelected}
               onPress={() => handleEnvironmentSelected(item.key)}
