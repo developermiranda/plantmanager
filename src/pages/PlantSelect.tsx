@@ -154,7 +154,6 @@ export function PlantSelect() {
         />
       </View>
 
-
     </View>
   )
 }
