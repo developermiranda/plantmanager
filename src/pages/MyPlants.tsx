@@ -59,7 +59,7 @@ export function MyPlants() {
       );
 
       setNextWatered(
-        `Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime} horas.`
+        `Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime}.`
       )
 
       setMyPlants(plantsStoraged);
@@ -73,24 +73,25 @@ export function MyPlants() {
     return <Load />
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={styles.container}>
-        <Header />
-        <View style={styles.spotLight}>
-          <Image
-            source={waterdrop}
-            style={styles.spotLightImage}
-          />
-          <Text style={styles.spotLightText}>
-            {nextWatered}
-          </Text>
-        </View>
-        <View style={styles.plants}>
-          <Text style={styles.plantsTitle}>
-            Próximas regadas
+
+    <View style={styles.container}>
+      <Header />
+      <View style={styles.spotLight}>
+        <Image
+          source={waterdrop}
+          style={styles.spotLightImage}
+        />
+        <Text style={styles.spotLightText}>
+          {nextWatered}
         </Text>
+      </View>
+      <View style={styles.plants}>
+        <Text style={styles.plantsTitle}>
+          Próximas regadas
+        </Text>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+        >
           <FlatList
             data={myPlants}
             keyExtractor={(item) => String(item.id)}
@@ -100,13 +101,14 @@ export function MyPlants() {
                 handleRemove={() => { handleRemove(item) }}
               />
             )}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ flex: 1 }}
+          // showsVerticalScrollIndicator={false}
+          // contentContainerStyle={{ flex: 1 }}
           />
+        </ScrollView>
 
-        </View>
       </View>
-    </ScrollView>
+    </View>
+
   )
 }
 
@@ -116,7 +118,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 30,
-    paddingTop: 50,
     backgroundColor: colors.background
   },
   spotLight: {
